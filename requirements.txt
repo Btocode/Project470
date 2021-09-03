@@ -1,0 +1,7 @@
+django
+pillow
+image
+django-cleanup
+django-crispy-forms
+django-resized
+django-filter

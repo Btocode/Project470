@@ -1,0 +1,52 @@
+{% extends 'medicalapp/listbase.html' %}
+{% block content %}
+<div class="container">
+  <div class="listContainer" style="height: 100%; padding: 20pt; border: 2px solid #ccc; border-radius: 10px; width: 80%;">
+    <div class="list-table">
+      <h2 style="text-align: center;  margin-top: 10pt;">Showing All Doctors List</h2>
+      <table class="table table-hover">
+        <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"><label for="">Name</label></th>
+      <th scope="col"><label for="">Hospital/Chamber</label></th>
+      <th scope="col"><label for="">Speciality</label></th>
+      <th scope="col"><label for="">Disease Treatements</label></th>
+      <th scope="col"><label for="">Remote Appointment</label></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for doctor in doctors %}
+    <tr class="tablerow">
+      <th scope="row"><img class="meta-image" src="{{ doctor.image.url }}" alt="{{ doctor.name }}}"> </th>
+      <td>
+        <a href="{% url 'doctor-detail' doctor.id %}" 
+        style="text-decoration: none; color: black; text-transform: uppercase;">{{doctor.name}}</a></td>
+      <td>
+        {% for hospital in doctor.hospital_set.all %}
+            {{hospital.name}}
+        {% endfor %}
+      </td>
+      <td>{{ doctor.fields}}</td>
+      <td>
+        {% for disease in doctor.treats.all %}
+          {{disease}},
+        {% endfor %}
+      </td>
+      <td>
+        {% for hospital in doctor.hospital_set.all %}
+          {% if hospital.link %}
+            <a class="btn btn-success" href="{{ hospital.link }}" > Available </a>
+          {% else %}
+            Not Available
+          {% endif %}
+        {% endfor %}
+      </td> 
+      
+    </tr> 
+    {% endfor %} 
+  </tbody>
+</table>
+
+{% endblock content %}
+    

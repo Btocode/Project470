@@ -1,0 +1,86 @@
+{% extends 'medicalapp/base.html' %}
+{% block content %}
+<section id="home-section">
+<div class="navContainer">
+
+</div>
+</nav>
+</div>
+
+
+<div class="bglogo" style="height: 200pt; width: 200pt; margin-left: 33%; margin-bottom: 90%; margin-top: 0%;">
+  <!-- <img src="/logo.png" style="width: 200pt; height: 200pt; border-radius: 50%; display: block; margin:auto;"> -->
+  
+</div>
+<div class="bgcontainer">
+  <img src="/background.svg" alt="homepage">
+  <div class="searchbar" >
+    <form action="{% url 'search-list' %}" method="get">
+    <input name="q" type="text" placeholder="Type and hit Enter">
+  </form>
+    
+  </div>
+  <!-- <div class="Header">
+    <div class="icon">
+      <img src="/nav_pic.png" alt="">
+    </div>
+    <div class="menu" sticky>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="https://therealshihab.pythonanywhere.com/">Blog</a></li>
+          <li><a href="#">Our Team</a></li>
+          </ul>
+    </div>
+  </div> -->
+</div>
+<div class="optcontainer">
+  <div class="selectors">
+    <a class="icon-button" href="{% url 'doctor-list' %}"><img src="/doctor_face.svg" alt=""></a>
+    <p>See Doctor's List</p>
+  </div>
+  <div class="selectors">
+    <a class="icon-button" href="{% url 'hospital-list' %}"><img src="/hospital.svg" alt=""></a>
+    <p>Look for a hospital</p>
+  </div>
+  <div class="selectors">
+    <a class="icon-button" href="{% url 'field-list' %}"><img src="/speciality.svg" alt=""></a>
+    <p>Find Doctor's by speciality</p>
+  </div>
+  <div class="selectors">
+    <a class="icon-button" href="{% url 'disease-list' %}"><img src="/disease.svg" alt=""></a>
+    <p>find Doctor's by diseases</p>
+  </div>
+</div>
+</section>
+
+<section id="about-section">
+<div class="ab-container">
+  <div class="leftPart">
+    <h3>FIND DOCTORS AROUND INSTANTLY </h3>
+    <p>DOCTORS ARE ALWAYS WAITING TO HELP YOU. AND THROUGH OUR DOCFIND YOU CAN FIND 
+YOUR DESIRED AND NEAREST DOCTORS EASILY. OUR DATABASE CONTAINS THOUSANDS OF DOCTORS 
+ALL AROUND BANGLADESH. </p>
+<p>
+IF YOU ARE IN DIRE NEED OF ONE AND DON'T KNOW WHERE TO LOOK? FEAR NOT! WITH OUR ADVANCED
+SEARCH ENGINE AND HUGE COLLECTION OF DOCTORS, YOU CAN EASILY LOOK FOR ONE RIGHT AWAY!
+</p>
+<p>
+ALL THESE SERVICES ARE TOTALLY FREE OF SERVICES. ISN'T IT COOL? AND WE ARE WORKING CONTINUOSLY
+TO ADD AND UPDATE OUR DATABASE EVERY DAY. WITH EVERY SEARCH YOU MAKE, IT KEEPS GETTING BETTER.
+</p>
+
+
+
+    
+  </div>
+  <div class="rightPart">
+    <h2>Learn How to Search<br> the Best Way</h2>
+    <div class="videoContainer">
+      <video src="/video.mp4" preload="auto"></video>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+{% endblock content %}

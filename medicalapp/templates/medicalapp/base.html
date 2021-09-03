@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'medicalapp/main.css' %}">
+  <title>DocTracker</title>  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+    integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+    integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+
+</head>
+
+<body style="font-family: 'Product Sans', serif;">
+
+
+   
+    {% block content %}
+    {%endblock content %}
+    
+  <section id="footer">
+    <div class="footerContainer">
+      <div class="first">
+        <h2>FAQs</h2>
+        <p>I don't know how to search ? <br>
+          aAfter clicking it's not showing any results ? <br> I'm a doctor, I'd would like to update my info <br>
+          Can I search other things here ?</p>
+      </div>
+      <div class="second">
+        <p>I'd like to find all neuro//anysurgeon,how can I do that ? <br>
+          Can I find therapists here ? <br>Can I find nurses here ? <br> aCan I get doctors' contact no here ? <br> Do you guys have affiliation with any doctor ?</p>
+      </div>
+      <div class="third">
+        <p>Are there any paid subscriptions ? <br>
+          Can I directly talk to a doctor from here ? <br>Is this website secured ? <br> Is it necessary to login/create account ? <br>I think I have seen some doctors with wrong info,
+          how can I report for corrections ?</p>
+      </div>
+      <div class="fourth">
+        <li><a style="color: white;" href="{% url 'home' %}">Home</a></li>
+        <li><a style="color: white;" href="{% url 'doctor-list' %}">Doctors' List</a></li>
+        <li><a style="color: white;" href="#">Contribute</a></li>
+        <li><a style="color: white;" href="#">Blog</a></li>
+        <li><a style="color: white;" href="#">Contact Us</a></li>
+        <li><a style="color: white;" href="#">About Us</a></li>
+      </div>
+    </div>
+    <div class="footerEnd">
+      <small><p>&copy; Copyright 2020, All right reserved by  <a href="https://github.com/Btocode">AFSAN</a> </p>
+        </small>
+    </div>
+  </section>
+
+
+</body>
+
+</html>

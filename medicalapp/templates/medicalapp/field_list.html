@@ -1,0 +1,67 @@
+{% extends 'medicalapp/listbase.html' %}
+{% block content %}
+
+<div class="container">
+  <div class="listContainer" style="height: 100%; padding: 20pt; width: 80%;">
+    <div class="list-table">
+    
+        <h2 style="text-align: center;  margin-top: 10pt;">Showing Doctor List By Speciality</h2>
+    {% for field in fields %}
+    {% if field.doctor_set.all %}
+    <h3> {{field.name}} </h3>
+    <table class="table table-hover" 
+    style="border: 2pt solid #ccc; overflow:hidden ; box-sizing: border-box; box-shadow: 1pt 1pt .5pt 1pt #ccc; margin-bottom: 50pt;">
+        <thead>
+    
+  </thead>
+  <tbody>
+    {% for doctor in field.doctor_set.all %}
+    <tr class="tablerow" style="text-align: left;">
+      <th scope="row" style="width: 60pt;"><img class="meta-image" src="{{ doctor.image.url }}" alt="{{ doctor.name }}}"> </th>
+      <td style="width: 250pt;">
+        <a href="{% url 'doctor-detail' doctor.id %}" 
+        style="text-decoration: none; color: black; text-transform: uppercase;">{{doctor.name}}</a></td>
+      <td style="width: 200pt;" >
+        <p style="text-align: left;" >
+        {% if doctor.hospital_set.all %}  
+        {% for hospital in doctor.hospital_set.all %}        
+        {{hospital.name}}
+            
+        {% endfor %}
+        {% else %}
+      No Hospital
+            {% endif %}
+          </p>
+      </td>      
+      <td style="width: 200pt;">
+        <p >
+        {% for disease in doctor.treats.all %}
+          {{disease}},
+        {% endfor %}
+        </p>
+      </td>
+      <td style="width: 200pt;">
+        {% if doctor.hospital_set.all %}  
+          {% for hospital in doctor.hospital_set.all %}
+            {% if hospital.link %}
+          <p style="display: flex; justify-content: center;">
+            <a class="btn btn-success" href="{{ hospital.link }}" > Available </a> </p>
+          {% else %}
+          <p style="display: flex; justify-content: center;">Not Available</p>
+          {% endif %}
+          {% endfor %}
+          {% else %}
+          <p style="display: flex; justify-content: center;">Not Available</p>
+          {% endif %}
+        
+      </td> 
+      
+    </tr> 
+    {% endfor %} 
+    {% else %}
+    {% endif %}
+</tbody>
+</table>
+    
+    {% endfor %} 
+{% endblock content %}

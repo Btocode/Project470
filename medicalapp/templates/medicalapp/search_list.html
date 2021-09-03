@@ -1,0 +1,60 @@
+{% extends 'medicalapp/listbase.html' %}
+{% block content %}
+<div class="searchbar" style="height: 50px; width: 100%; display: flex; justify-content: center; margin-top: 10px;"> 
+  <form action="{% url 'search-list' %}" method="get">
+  <input name="q" type="text" placeholder="Search Here" 
+  style="height: 40px; width: 400px; border: 2px solid #ccc; border-radius: 15px; padding: 10px 20px; ">
+</form>
+  <button class="btn btn-outline-primary" style="margin-left: 20px ; height: 40px; border-radius: 15px;" action="{% url 'search-list' %}" type="submit">Search</button>
+</div>
+
+<div class="container">
+  <div class="listContainer">
+    <div class="list-table">
+      <table class="table table-hover">
+<thead>
+  <tr>
+    <th scope="col"></th>
+    <th scope="col"><label for="">Name</label></th>
+    <th scope="col"><label for="">Hospital/Chamber</label></th>
+    <th scope="col"><label for="">Speciality</label></th>
+    <th scope="col"><label for="">Disease Treatements</label></th>
+    <th scope="col"><label for="">Remote Appointment</label></th>
+  </tr>
+</thead>
+<tbody>
+  {% for doctor in object_list %}
+  <tr class="tablerow">
+    <th scope="row"><img class="meta-image" src="{{ doctor.image.url }}" alt="{{ doctor.name }}}"> </th>
+    <td>
+        <a href="{% url 'doctor-detail' doctor.id %}" 
+        style="text-decoration: none; color: black; text-transform: uppercase;">{{doctor.name}}</a></td>
+    <td>
+      {% for hospital in doctor.hospital_set.all %}
+          {{hospital.name}}
+      {% endfor %}
+    </td>
+    <td>{{ doctor.fields}}</td>
+    <td>
+      {% for disease in doctor.treats.all %}
+        {{disease}},
+      {% endfor %}
+    </td>
+          
+    <td>
+    {% for hospital in doctor.hospital_set.all %}                            
+    {% if hospital.link %}
+    
+    <a class="btn btn-success" href="{{ hospital.link }}" >Available</a>
+    {% else %}
+    {% endif %}
+    {% endfor %}
+    </td> 
+      
+    
+  </tr> 
+  {% endfor %} 
+</tbody>
+</table>
+
+{% endblock content %}
