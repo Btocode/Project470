@@ -7,6 +7,11 @@ from django.db.models import Q
 def home(request):
     return render(request, 'medicalapp/home.html')
 
+def register(request):
+    
+    return render(request, 'medicalapp/register.html')
+def login(request):
+    return render(request, 'medicalapp/login.html')
 
 class DoctorListView(ListView):
     model = Doctor

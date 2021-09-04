@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
-from PIL import Image
 from django_resized import ResizedImageField
+from PIL import Image
 
 
 class Disease(models.Model):
