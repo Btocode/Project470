@@ -1,10 +1,11 @@
-from django.shortcuts import render, HttpResponse
-from django.views.generic import ListView, DetailView
-from .models import Doctor, Hospital, Field, Disease
 from django.db.models import Q
+from django.shortcuts import HttpResponse, render
+from django.views.generic import DetailView, ListView
+
+from .models import Disease, Doctor, Field, Hospital
 
 
-def home(request):
+def home_page(request):
     return render(request, 'medicalapp/home.html')
 
 def register(request):

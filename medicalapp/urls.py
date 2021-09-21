@@ -6,7 +6,7 @@ from .views import (DiseaseListView, DoctorDetailView, DoctorListView,
                     FieldListView, HospitalListView, SearchListView)
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.home_page, name='home'),
     path('doctors/', DoctorListView.as_view(), name='doctor-list'),
     path('doctor/<int:pk>/', DoctorDetailView.as_view(), name='doctor-detail'),
     path('hospitals/', HospitalListView.as_view(), name='hospital-list'),
